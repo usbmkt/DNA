@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import Image from 'next/image';
 import {
   Mic, Square, Loader, ArrowRight, FileText, Check, AlertTriangle, Brain, 
   Volume2, BarChart3, Users, Target, Zap, Play, Download, Award,
@@ -204,15 +205,23 @@ const Navigation = React.memo(() => {
     <nav className="nav-container">
       <div className="nav-content">
         <div className="nav-logo">
-          <Brain className="w-8 h-8 text-green-400" />
-          <span className="nav-brand">DNA</span>
+          <div className="logo-container">
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={120}
+              height={40}
+              className="logo-image"
+              priority
+            />
+          </div>
         </div>
         
         <div className="nav-menu">
-          <span className="nav-item">Sobre Nós</span>
-          <span className="nav-item">Serviços</span>
-          <span className="nav-item">Soluções</span>
-          <span className="nav-item">Clientes</span>
+          <span className="nav-item">About Us</span>
+          <span className="nav-item">Services</span>
+          <span className="nav-item">Solutions</span>
+          <span className="nav-item">Clients</span>
         </div>
         
         <button 
@@ -327,7 +336,7 @@ const WelcomeScreen = React.memo(({ onStart }: { onStart: () => void }) => (
         <div className="mic-glow-ring"></div>
       </div>
       <button onClick={onStart} className="cta-button">
-        <span>Begin Your Journey</span>
+        <span>Iniciar Análise DNA</span>
         <ArrowRight className="w-6 h-6 ml-2" />
       </button>
     </div>
